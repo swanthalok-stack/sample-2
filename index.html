@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poonji Sharma | Brand Communication Specialist</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --maroon: #6e1c24;
+            --orange: #ff8c5a;
+            --text-dark: #2d2d2d;
+            --text-light: #555;
+            --bg-color: #f8f9fa;
+            --grid-color: rgba(0, 0, 0, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+
+        .grid-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 45px 45px; z-index: -1;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            padding: 40px 8% 0 8%;
+            background: linear-gradient(180deg, var(--bg-color) 78%, var(--maroon) 78%);
+        }
+
+        .hero-content { flex: 1.5; z-index: 10; padding-bottom: 60px; }
+        
+        h1 { 
+            font-size: clamp(3rem, 7vw, 5.5rem); 
+            color: var(--maroon); 
+            font-weight: 800; 
+            line-height: 1; 
+            margin-bottom: 15px;
+            animation: slideInLeft 1s ease-out forwards;
+        }
+
+        .hero-tagline {
+            font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 35px;
+            border-left: 3px solid var(--orange);
+            padding-left: 15px;
+            max-width: 800px;
+        }
+
+        .hero-quote {
+            position: absolute;
+            bottom: 6%;
+            left: 8%;
+            color: white;
+            z-index: 15;
+            max-width: 650px;
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
+            line-height: 1.5;
+            font-weight: 300;
+        }
+        .hero-quote i { font-style: italic; opacity: 0.9; display: block; margin-bottom: 8px; }
+        .hero-quote span { font-weight: 600; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); }
+
+        .hero-image-wrapper { flex: 1; display: flex; align-items: flex-end; justify-content: flex-end; margin-bottom: -5px; }
+        .hero-image-wrapper img { 
+            width: 100%; 
+            max-width: 500px; 
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.4)); 
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* --- MAROON BRANDS SECTION --- */
+        .brands-section { 
+            background: var(--maroon); 
+            padding: 80px 8%; 
+            color: white;
+            text-align: center;
+        }
+        .brand-label { text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; opacity: 0.6; margin-bottom: 40px; }
+        .brands-container { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; }
+        .brand-logo { font-weight: 800; color: white; font-size: 1.1rem; opacity: 0.7; transition: 0.4s; }
+        .brand-logo:hover { opacity: 1; color: var(--orange); transform: translateY(-5px); }
+
+        /* --- STORY SECTION --- */
+        .section-container { padding: 100px 8%; max-width: 1400px; margin: 0 auto; }
+        .story-header h2 { font-size: clamp(2.5rem, 5vw, 3.8rem); color: var(--maroon); font-weight: 800; line-height: 1.1; }
+        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 50px; font-size: 1.2rem; color: var(--text-light); }
+
+        /* --- EXPERTISE --- */
+        .campaign-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+        .campaign-card { 
+            background: #fff; padding: 40px; border-radius: 20px; border: 1px solid var(--border-color);
+            text-decoration: none; color: inherit; transition: 0.4s;
+        }
+        .campaign-card:hover { transform: translateY(-10px); border-color: var(--orange); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+
+        /* --- PUBLIC PRESENCE --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .gallery-item { 
+            aspect-ratio: 1/1; border-radius: 15px; overflow: hidden; cursor: pointer;
+            transition: 0.5s ease; border: 6px solid #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
+        .gallery-item:hover { transform: scale(1.05); z-index: 10; }
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        /* --- CONNECT BUTTON --- */
+        .connect-btn {
+            background: var(--maroon); color: white; padding: 18px 45px;
+            text-decoration: none; font-weight: 700; border-radius: 50px;
+            display: inline-flex; align-items: center; gap: 15px; transition: 0.4s;
+        }
+        .connect-btn:hover { background: var(--orange); transform: scale(1.05); }
+
+        /* KEYFRAMES */
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+        /* LIGHTBOX */
+        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; z-index: 9999; }
+        .lightbox img { max-width: 90%; max-height: 85%; border-radius: 10px; }
+
+        footer { 
+            background: var(--maroon); padding: 140px 8% 60px 8%; text-align: center; color: white;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        @media (max-width: 992px) {
+            .hero { flex-direction: column; text-align: center; background: linear-gradient(180deg, var(--bg-color) 65%, var(--maroon) 65%); }
+            .hero-quote { position: relative; left: 0; margin-top: 40px; color: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 data-aos="fade-right">Hi, I'm Poonji Sharma</h1>
+            <div class="hero-tagline" data-aos="fade-right" data-aos-delay="200">
+                Branding Coach and Digital Marketer | Ex -NDTV | 91k+ Impressions | Gold Medalist (Leadership Excellence) | Public Speaker
+            </div>
+            <a href="mailto:poonjish@gmail.com" class="connect-btn">Connect <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <div class="hero-quote" data-aos="fade-up" data-aos-delay="400">
+            <i>"Your brand is what other people say about you when you're not in the room."</i>
+            <span>— Jeff Bezos, Founder of Amazon</span>
+        </div>
+
+        <div class="hero-image-wrapper">
+            <img src="poonji-cutout.png.png" alt="Poonji Sharma">
+        </div>
+    </section>
+
+    <section class="brands-section" data-aos="fade-up">
+        <div class="brand-label">Trusted Collaborations</div>
+        <div class="brands-container">
+            <div class="brand-logo">NDTV</div>
+            <div class="brand-logo">COUNCIL INDIA</div>
+            <div class="brand-logo">AMRITA HOSPITAL</div>
+            <div class="brand-logo">AMRITA VISHWA VIDYAPEETHAM</div>
+            <div class="brand-logo">NEWS NCR</div>
+        </div>
+    </section>
+
+    <section class="section-container" id="story">
+        <div class="story-header" data-aos="fade-right">
+            <h2>Your Brand's <span style="color:var(--orange)">key to better</span> Marketing!</h2>
+            <p style="color: var(--orange); font-weight: 800; margin-top: 15px; font-size: 1.1rem; letter-spacing: 1px;">My Story...</p>
+        </div>
+        <div class="story-grid" data-aos="fade-up">
+            <div>
+                <p style="margin-bottom: 25px;">I didn't come into brand communication through a single path. My background has been a mix of media, storytelling, marketing, and working closely with people.</p>
+                <p>From newsrooms like <strong>NDTV and News NCR</strong> to handling data in one of Asia's largest hospitals, I've seen communication from very different perspectives.</p>
+            </div>
+            <div>
+                <p style="margin-bottom: 25px;">I enjoy the space where planning, messaging, and execution come together. Branding isn't just copy—it's about real problems, real people, and clarity in intent.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container" id="work">
+        <h2 style="color: var(--maroon); font-weight: 800; font-size: 2.5rem; margin-bottom: 40px;">Expertise</h2>
+        <div class="campaign-grid">
+            <a href="Brand%20marketing%20Plan_PPT.pdf" target="_blank" class="campaign-card" data-aos="fade-up">
+                <h3>Marketing Plan</h3>
+                <p>Strategic 360-degree brand positioning for healthcare institutions.</p>
+                <small style="color: var(--orange); font-weight: 700; display: block; margin-top: 20px;">Open PDF →</small>
+            </a>
+            <a href="Amrita%20Hospital%20Faridabad-%20Swasth%20mela%20(1).docx" target="_blank" class="campaign-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Swasth Mela</h3>
+                <p>Community health festival engagement and execution strategies.</p>
+                <small style="color: var(--orange); font-weight: 700; display: block; margin-top: 20px;">Open Doc →</small>
+            </a>
+            <a href="Health%20Kundli%20Plan.pdf" target="_blank" class="campaign-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Health Kundli</h3>
+                <p>Explaining genomics through intuitive cultural metaphors.</p>
+                <small style="color: var(--orange); font-weight: 700; display: block; margin-top: 20px;">Open PDF →</small>
+            </a>
+            <a href="Yearly%20Overview_2025_PPT_AOC.pdf" target="_blank" class="campaign-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>2025 Impact</h3>
+                <p>Annual branding, OOH visibility, and multi-channel overview.</p>
+                <small style="color: var(--orange); font-weight: 700; display: block; margin-top: 20px;">Open PDF →</small>
+            </a>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h2 style="color: var(--maroon); font-weight: 800; font-size: 2.5rem; margin-bottom: 40px;">Public Presence</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="event1.jpg.jpeg" onerror="this.style.display='none'"></div>
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="event2.jpg.jpeg" onerror="this.style.display='none'"></div>
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="event3.jpg.jpeg" onerror="this.style.display='none'"></div>
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="event4.jpg.jpeg" onerror="this.style.display='none'"></div>
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="event5.jpg.jpeg" onerror="this.style.display='none'"></div>
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="event6.jpg.jpeg" onerror="this.style.display='none'"></div>
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="event7.jpg.jpeg" onerror="this.style.display='none'"></div>
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="event8.jpg.jpeg" onerror="this.style.display='none'"></div>
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="event9.jpg.jpeg" onerror="this.style.display='none'"></div>
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)"><img src="event10.jpg.jpeg" onerror="this.style.display='none'"></div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
+        <img id="lightbox-img" src="">
+    </div>
+
+    <footer id="contact">
+        <div data-aos="zoom-in">
+            <h2 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; font-weight: 800;">Let’s build your brand narrative.</h2>
+            <a href="mailto:poonjish@gmail.com" class="connect-btn" style="background: white; color: var(--maroon); border-color: white;">Connect Now</a>
+        </div>
+        <p style="margin-top: 100px; opacity: 0.4; font-size: 0.8rem;">&copy; 2026 Poonji Sharma</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
